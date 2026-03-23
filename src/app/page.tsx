@@ -27,19 +27,18 @@ export default async function Home() {
 
         <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xl">
-            <p className="text-sm font-medium text-[color:var(--primary)]">FakeStore Powered</p>
+            <p className="text-sm font-medium text-[color:var(--primary)]">Blue Cart</p>
             <h1 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
-              Shop the essentials. Built with Next.js, SEO, and night mode.
+              Shop the Best Platform Online 
             </h1>
             <p className="mt-4 text-[color:var(--muted)]">
-              A clean ecommerce demo with responsive product listings from the FakeStore API, plus a
-              validated Contact API with logic.
+            
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href="/contact"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-[color:var(--primary)] px-6 text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
+                className="inline-flex h-11 items-center justify-center rounded-full bg-[color:var(--foreground)] px-6 text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
               >
                 Contact us
               </Link>
