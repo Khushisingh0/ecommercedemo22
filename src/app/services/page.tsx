@@ -65,7 +65,7 @@ export default function ServicesPage() {
         </p>
         <a
           href="/contact"
-          className="mt-5 inline-flex h-11 items-center justify-center rounded-full bg-[color:var(--primary)] px-6 text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
+          className="mt-5 inline-flex h-11 items-center justify-center rounded-full bg-[color:var(--foreground)] px-6 text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
         >
           Go to Contact
         </a>
