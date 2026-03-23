@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const [products, categories] = await Promise.all([fetchProducts(), fetchCategories()]);
+  // Vercel build environments sometimes block external APIs; never fail prerender.
+  const [products, categories] = await Promise.all([
+    fetchProducts().catch(() => []),
+    fetchCategories().catch(() => []),
+  ]);
 
   const featured = products.slice(0, 9);
   const topCategories = categories.slice(0, 6);
@@ -73,9 +77,16 @@ export default async function Home() {
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {featured.length ? (
+            featured.map((product) => <ProductCard key={product.id} product={product} />)
+          ) : (
+            <div className="col-span-full rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6">
+              <h3 className="text-sm font-semibold">Products temporarily unavailable</h3>
+              <p className="mt-2 text-sm text-[color:var(--muted)]">
+                The FakeStore API blocked the request during build. Try again later.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

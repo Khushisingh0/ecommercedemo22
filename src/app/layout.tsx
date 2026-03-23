@@ -15,8 +15,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+function safeMetadataBase(): URL {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL;
+  if (raw) {
+    try {
+      return new URL(raw);
+    } catch {
+      // If env is invalid, fall back to local URL.
+    }
+  }
+  return new URL("http://localhost:3000");
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: safeMetadataBase(),
   title: {
     default: "BlueCart",
     template: "%s | BlueCart",
