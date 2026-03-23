@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { fetchCategories, fetchProducts } from "@/lib/fakestore";
 import { ProductCard } from "@/components/products/ProductCard";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Home",
   description: "Browse products from FakeStore API in a responsive BlueCart layout.",
